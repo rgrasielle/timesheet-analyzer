@@ -1,0 +1,9 @@
+services:
+  timesheet-analyzer:
+    build: .
+    container_name: timesheet-analyzer
+    volumes:
+      - .:/app/output
+    command: >
+      sh -c "java -jar app.jar &&
+             cp result.json /app/output/result.json"
